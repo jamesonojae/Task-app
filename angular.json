@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Task-app"
+    }
+  },
+  "defaultProject": "Task-app",
+  "cli": {
+    "analytics": false
+  }
 }

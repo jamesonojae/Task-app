@@ -1,0 +1,63 @@
+<div class="centered-content">
+  <div class="modal-box">
+    <h1 class="title">
+      Create a New List
+    </h1>
+    <!-- <div class="field has-addons">
+      <div class="control is-expanded">
+        <input
+          class="input has-background-light is-primary is-medium"
+          type="text"
+          placeholder="Add a List"
+        />
+      </div>
+      <div class="control is-expanded">
+        <input
+          class="input has-background-light is-primary is-medium"
+          type="text"
+          placeholder="Add Date"
+        />
+      </div>
+      <br />
+      <div class="control">
+        <a class="button is-primary has-text-white is-medium">
+          Create
+        </a>
+      </div>
+    </div> -->
+    <div class="field">
+      <p class="control has-icons-left has-icons-right">
+        <input
+          class="input has-background-light is-primary is-medium"
+          type="text"
+          placeholder="Add list"
+        />
+      </p>
+    </div>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input
+          class="input has-background-light is-primary is-medium"
+          type="text"
+          placeholder="Add Date"
+        />
+        <span class="icon is-small is-left">
+          <i class="fas fa-lock"></i>
+        </span>
+      </p>
+    </div>
+    <div class="field">
+      <p class="control">
+        <button class="button is-medium" routerLink="/">
+          Go Back
+        </button>
+        <button
+          class="button is-primary has-text-white is-medium"
+          style="margin-left: 15px;" (click)="CreateList()"
+        >
+          Create
+        </button>
+      </p>
+    </div>
+  </div>
+</div>
