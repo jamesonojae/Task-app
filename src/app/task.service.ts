@@ -20,4 +20,13 @@ export class TaskService {
   getLists() {
     return this.webReqService.get('tasks/lists');
   }
+
+  // To get all task of a particular lists
+  getTasks(listsId: string) {
+    return this.webReqService.get(`tasks/${listsId}`);
+  }
+  // To get all task of a particular lists
+  getlistTasks(listsId: string) {
+    return this.webReqService.get(`tasks/${listsId}`);
+  }
 }
