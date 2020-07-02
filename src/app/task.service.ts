@@ -7,12 +7,17 @@ import { WebRequestService } from './web-request.service';
 export class TaskService {
   constructor(private webReqService: WebRequestService) {}
 
-  // decleare the king of the data and data type the backend will be expecting
+  // decleare the kind of the data and data type the backend will be expecting
   createList(listDescription: string, createdDateTime: string) {
     // to send a web request to create a list
     return this.webReqService.post('tasks/createList', {
       listDescription,
       createdDateTime,
     });
+  }
+
+  // To get all lists
+  getLists() {
+    return this.webReqService.get('tasks/lists');
   }
 }

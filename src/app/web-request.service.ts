@@ -10,6 +10,7 @@ export class WebRequestService {
   constructor(private http: HttpClient) {
     this.ROOT_URL = 'http://localhost:3000/api/v1';
   }
+
   get(url: string) {
     return this.http.get(`${this.ROOT_URL}/${url}`);
   }
