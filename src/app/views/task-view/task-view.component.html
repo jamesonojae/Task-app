@@ -12,10 +12,9 @@
         <a
           class="list-menu-item"
           *ngFor="let list of lists"
-          (click)="getTasks(list.listId)"
         >
           <!-- [routerLink]="['/tasks/lists', list.listId]" -->
-          <p>{{ list.listDescription }}</p>
+          <!--<p>{{ list.listDescription }}</p>-->
         </a>
       </div>
       <!-- <button class="button is-primary" (click)="createNewList()"> -->

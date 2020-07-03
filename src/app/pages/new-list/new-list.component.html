@@ -28,20 +28,20 @@
     <div class="field">
       <p class="control has-icons-left has-icons-right">
         <input
-          #listTaskInput
           class="input has-background-light is-primary is-medium"
           type="text"
           placeholder="Add list"
+          [(ngModel)]="newList.listDescription"
         />
       </p>
     </div>
     <div class="field">
       <p class="control has-icons-left">
         <input
-          #dateTimeInput
           class="input has-background-light is-primary is-medium"
           type="text"
           placeholder="Add Date"
+          [(ngModel)]="newList.createdDateTime"
         />
         <span class="icon is-small is-left">
           <i class="fas fa-lock"></i>
@@ -56,7 +56,7 @@
         <button
           class="button is-primary has-text-white is-medium"
           style="margin-left: 15px;"
-          (click)="createList(listTaskInput.value, dateTimeInput.value)"
+          (click)="createNewList()"
         >
           Create
         </button>

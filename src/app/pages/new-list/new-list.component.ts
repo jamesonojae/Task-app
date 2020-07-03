@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from 'src/app/task.service';
+import {ListModel} from '../../models/list.model';
+import {HttpService} from '../../services/http.service';
+
 
 @Component({
   selector: 'app-new-list',
@@ -7,22 +9,20 @@ import { TaskService } from 'src/app/task.service';
   styleUrls: ['./new-list.component.scss'],
 })
 export class NewListComponent implements OnInit {
-  constructor(private taskService: TaskService) {}
 
+  constructor(private httpService: HttpService) {}
+  newList: ListModel = new ListModel();
   ngOnInit(): void {}
-  createList(listDescription: string, createdDateTime: string) {
-    this.taskService
-      // .createList('Testing front', '2020-06-23 22:58:00')
-      .createList(listDescription, createdDateTime)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-          console.log('Ok');
-        },
-        (error) => {
-          console.log('Bad');
-          console.log(error);
-        }
-      );
+
+  createNewList() {
+    this.httpService.createList(`lists/createList`, this.newList).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    )
+    // console.log(this.newList);
   }
 }
