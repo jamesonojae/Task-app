@@ -12,9 +12,10 @@
         <a
           class="list-menu-item"
           *ngFor="let list of lists"
+          (click)="getTasks(list.listId)"
         >
           <!-- [routerLink]="['/tasks/lists', list.listId]" -->
-          <!--<p>{{ list.listDescription }}</p>-->
+          <p>{{ list.listDescription }}</p>
         </a>
       </div>
       <!-- <button class="button is-primary" (click)="createNewList()"> -->
@@ -22,7 +23,7 @@
         class="button is-primary has-text-white"
         routerLink="/pages/new-list"
       >
-        + Add Task
+        + Add List
       </button>
     </div>
 
@@ -31,9 +32,17 @@
         Task
       </h1>
       <!--Task element-->
-      <div class="task complete" *ngFor="let task of tasks">
-        <p>{{ task }}</p>
+      <div class="task" *ngFor="let task of tasks">
+        <p>{{ task.taskTitle}}</p>
+
       </div>
+     <div class="add-task" >
+       <button
+         class="button is-primary has-text-white" routerLink="/pages/new-task"
+       >
+         + Add Task
+       </button>
+     </div>
     </div>
   </div>
 </div>

@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ListModel} from '../models/list.model';
+import {TaskModel} from '../models/task.model';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  public ROOT_URL = 'http://localhost:3000/api/v1';
+  public ROOT_URL = 'http://localhost:3001/api/v1';
 
   constructor(private http: HttpClient) {
   }
@@ -16,9 +18,16 @@ export class HttpService {
   createList(path: string, listDetails) {
     return this.http.post(`${this.ROOT_URL}/${path}`, listDetails);
   }
-
-  // get list
-  /*getTask(path:string,){
-    return this.http.get<>(`${this.ROOT_URL}/${path}`);
-  }*/
+// get list
+  getLists(path: string) {
+    return this.http.get<ListModel[]>(`${this.ROOT_URL}/${path}`);
+  }
+  // get Tasks
+  getTask(path: string) {
+    return this.http.get<TaskModel[]>(`${this.ROOT_URL}/${path}`);
+  }
+  // create task
+createTask(path: string, taskDetails){
+    return this.http.post(`${this.ROOT_URL}/${path}`, taskDetails);
+}
 }
