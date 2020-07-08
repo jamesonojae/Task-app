@@ -14,6 +14,8 @@ export class TaskViewComponent implements OnInit {
   lists: ListModel[] = [];
   tasks: TaskModel[] = [];
   listTasks: any[];
+  currentTask;
+  currentRoute;
 
   constructor(private  httpService: HttpService) {}
 
@@ -38,6 +40,13 @@ err => {
       res => {
         console.log(listId);
         this.tasks = res;
+        this.currentTask = listId;
+        if (this.currentTask === null){
+          window.alert('Select A List');
+        }else {
+          // send the current id to the next page
+          this.currentRoute = `/pages/${this.currentTask}/new-task`;
+        }
       },
       err => {
         console.log(err);

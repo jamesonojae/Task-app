@@ -22,12 +22,12 @@ export class HttpService {
   getLists(path: string) {
     return this.http.get<ListModel[]>(`${this.ROOT_URL}/${path}`);
   }
-  // get Tasks
-  getTask(path: string) {
-    return this.http.get<TaskModel[]>(`${this.ROOT_URL}/${path}`);
-  }
   // create task
 createTask(path: string, taskDetails){
     return this.http.post(`${this.ROOT_URL}/${path}`, taskDetails);
 }
+// get Tasks
+  getTask(path: string) {
+    return this.http.get<TaskModel[]>(`${this.ROOT_URL}/${path}`);
+  }
 }

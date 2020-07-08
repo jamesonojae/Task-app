@@ -10,6 +10,8 @@ const routes: Routes = [
   { path: 'lists', component: TaskViewComponent },
   { path: 'lists/:listId', component: TaskViewComponent },
   {path: 'pages/new-task', component: NewTaskComponent}, // route to ADD new Task page
+  {path: 'pages/:listId/new-task', component: NewTaskComponent}, // route to ADD new Task to a list
+  // [path: 'user/:id/details', component:userComponent, pathMatch: 'full']
 ];
 
 @NgModule({

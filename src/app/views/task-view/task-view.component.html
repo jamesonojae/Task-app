@@ -38,8 +38,10 @@
       </div>
      <div class="add-task" >
        <button
-         class="button is-primary has-text-white" routerLink="/pages/new-task"
+         class="button is-primary has-text-white" [routerLink]="currentRoute"
+
        >
+         <!--         [routerLink]="['/user', user.id, 'details']"-->
          + Add Task
        </button>
      </div>
