@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpService} from '../../services/http.service';
 import {TaskModel} from '../../models/task.model';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-task',
@@ -12,7 +12,7 @@ export class NewTaskComponent implements OnInit {
   private listId: any;
 
   constructor(private httpService: HttpService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute, private router: Router) { }
   newTask: TaskModel = new TaskModel();
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -29,6 +29,7 @@ export class NewTaskComponent implements OnInit {
     this.httpService.createTask('lists/createTask', this.newTask).subscribe(
       res => {
         console.log(res);
+        this.router.navigate(['/lists'], {relativeTo: this.route});
       },
       err => {
         console.log(err);

@@ -30,4 +30,10 @@ createTask(path: string, taskDetails){
   getTask(path: string) {
     return this.http.get<TaskModel[]>(`${this.ROOT_URL}/${path}`);
   }
+  // completed task
+  completedTask(path: string, taskUpdate){
+    // return this.http.patch(`${this.ROOT_URL}/${taskId}/updateTask/${path}`,
+    return this.http.put(`${this.ROOT_URL}/updateTask/${path}`, taskUpdate);
+      // {completed: true});
+  }
 }

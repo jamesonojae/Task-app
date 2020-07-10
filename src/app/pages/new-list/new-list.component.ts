@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ListModel} from '../../models/list.model';
 import {HttpService} from '../../services/http.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 
 @Component({
@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class NewListComponent implements OnInit {
 
-  constructor(private httpService: HttpService, private router: Router) {}
+  constructor(private httpService: HttpService, private route: ActivatedRoute, private router: Router) {}
   newList: ListModel = new ListModel();
   ngOnInit(): void {}
 
@@ -19,7 +19,7 @@ export class NewListComponent implements OnInit {
     this.httpService.createList(`lists/createList`, this.newList).subscribe(
       res => {
         console.log(res);
-        this.router.navigate(['/lists']);
+        this.router.navigate(['/lists' ], {relativeTo: this.route});
       },
       err => {
         console.log(err);

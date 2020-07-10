@@ -53,4 +53,8 @@ err => {
       }
     );
   }
+
+  onTaskClick(taskId){
+ this.onTaskClick(taskId);
+  }
 }
